@@ -5,5 +5,55 @@ output:
     toc: true
     toc_float: true
 ---
+<br>
+<br>
 
-Testing testing
+## About Me
+Here's some info about me. 
+
+ - I love octopus, they're one of my favorite sea creatures
+<br>
+<img src="images/octopus.png" width="300px">
+ 
+ 
+<br>
+<br>
+
+## Experiment with Page Design
+<br>
+
+### Create Some Columns
+<style>
+  .col3 {
+    columns: 3 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 3 200px; /* chrome, safari */
+    -moz-columns: 3 200px;    /* firefox */
+  }
+</style>
+<div class="col3">
+**Column 1**
+- note `<div class="col3">` and `</div>`
+- what beautiful bullet points
+<br>
+<br>
+**Column 2**
+- which means to align with the left column
+- I added a `<br>` there
+<br>
+<br>
+<br>
+**Column 3**
+- I have 3 bullet points here
+- 3rd column
+<br>
+<br>
+</div>
+<br>
+
+### Source Another RMD Graphic
+```{r child, child='advanced/rocket_graph.rmd'}
+
+
+```
+
+

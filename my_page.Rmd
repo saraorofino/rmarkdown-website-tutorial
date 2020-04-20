@@ -51,9 +51,8 @@ Here's some info about me.
 <br>
 
 ### Source Another RMD Graphic
-```{r child, child='advanced/rocket_graph.rmd'}
-
-
+<br>
+```{r child, child='advanced/nutrient_graph.Rmd'}
 ```
 
 

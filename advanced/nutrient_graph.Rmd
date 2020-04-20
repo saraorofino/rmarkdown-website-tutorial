@@ -1,0 +1,53 @@
+---
+title: "Assignment 1"
+author: "Sara Orofino"
+date: "1/29/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, packages2, message=FALSE, include=FALSE}
+# load packages for Task 2 to avoid conflicts in task 1
+
+library(factoextra)
+#library(ggbiplot)
+
+usda <- read_csv("usda_nutrients.csv")
+```
+
+
+```{r, data wrangle, message=FALSE, include=FALSE}
+
+# Data wrangling: include food groups "vegetable and vegetable products" and "fruits and fruit juices", retain observations where short_descrip contains "RAW"
+
+nutrients <- usda %>% 
+  filter(food_group  == "Vegetables and Vegetable Products" |
+           food_group == "Fruits and Fruit Juices") %>%
+  filter(str_detect(short_descrip, pattern="RAW"))
+
+```
+
+```{r, PCA, biplot, message=FALSE, echo=FALSE}
+
+# PCA for variables from Protein through Zinc
+
+nutrient_pca <- prcomp(nutrients[9:30], scale = TRUE)
+
+fviz_pca_biplot(nutrient_pca,
+             habillage = nutrients$food_group,
+             palette = c("darkorange2", "darkgreen"),
+             label = "var",
+             repel = TRUE,
+             col.var="midnightblue") +
+  labs(title = "PCA Biplot: Fruit and Vegetable Nutrients",
+       x = "Dimension 1 (28.1%)",
+       y = "Dimension 2 (10.5%)") +
+  theme_bw()
+
+```
+

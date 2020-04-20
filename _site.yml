@@ -10,10 +10,12 @@ navbar:
       href: getting_sophisticated.html
     - text: "Your Turn"
       href: your_turn.html
+    - text: "My Page!"
+      href: my_page.html
 output_dir: "."
 output:
   html_document:
-    theme: yeti
+    theme: flatly
     highlight: textmate
 #    include:
 #      after_body: _footer.html
